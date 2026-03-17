@@ -2,8 +2,6 @@
 
 A conversational SQL agent built on top of the Northwind sales database. Ask questions in plain English, get answers back — or flip to SQL mode and see the exact query that ran. Built with LangChain, ChromaDB, Groq, and Streamlit.
 
-Currently deployed and being used by sales, ops, and analytics teams to self-serve data questions without touching the database directly.
-
 ---
 
 ## why this exists
@@ -52,7 +50,7 @@ user question
 
 ---
 
-## project structure
+## project structure - ( to be published ) 
 
 ```
 sales-rag-agent/
