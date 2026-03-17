@@ -4,7 +4,7 @@ A conversational SQL agent built on top of the Northwind sales database. Ask que
 
 ---
 
-## why this exists
+## Why this exists?
 
 The same five questions were being asked every week. Top customers by revenue. Category performance. Rep leaderboards. Pending orders. Someone always had to stop what they were doing, write a query, and send back a screenshot.
 
@@ -14,7 +14,7 @@ This sits in the middle. It understands the schema, knows what business terms li
 
 ---
 
-## how it works
+## How it works?
 
 Two modes in the UI:
 
@@ -37,7 +37,7 @@ user question
 
 ---
 
-## stack
+## Stack
 
 - **LangChain** — SQL agent orchestration, ReAct loop, tool use
 - **ChromaDB** — vector store for schema embeddings and business glossary
@@ -50,7 +50,7 @@ user question
 
 ---
 
-## project structure - ( to be published ) 
+## Project Structure - ( to be published ) 
 
 ```
 sales-rag-agent/
@@ -75,7 +75,7 @@ sales-rag-agent/
 
 ---
 
-## the RAG layer
+## The RAG Layer
 
 This is the part that separates it from a basic SQL chatbot.
 
@@ -85,7 +85,7 @@ All of this gets embedded into ChromaDB on startup using a local sentence transf
 
 ---
 
-## running locally
+## Running Locally
 
 **Prerequisites:** Python 3.10+, a Groq API key (free at console.groq.com)
 
@@ -107,7 +107,7 @@ Open `http://localhost:8501`
 
 ---
 
-## running with Docker
+## Running with Docker
 
 ```bash
 export GROQ_API_KEY=gsk_your_key_here
@@ -116,7 +116,7 @@ docker-compose up --build
 
 ---
 
-## example queries
+## Example Queries
 
 ```
 Who are the top 5 customers by total revenue?
@@ -133,7 +133,7 @@ Switch to SQL mode on any of these and you'll see the exact query that ran.
 
 ---
 
-## deployment
+## Deployment
 
 **Streamlit Community Cloud** — push to GitHub, connect the repo at share.streamlit.io, add GROQ_API_KEY under Settings → Secrets. Takes two minutes.
 
@@ -143,7 +143,7 @@ Switch to SQL mode on any of these and you'll see the exact query that ran.
 
 ---
 
-## environment variables
+## Environment variables
 
 ```
 GROQ_API_KEY=          # required — get free key at console.groq.com
@@ -151,7 +151,7 @@ GROQ_API_KEY=          # required — get free key at console.groq.com
 
 ---
 
-## known limitations
+## Known Limitations
 
 - Complex analytical queries with multiple nested aggregations can sometimes trip the agent. Specific, direct questions work better than vague ones.
 - The DB connection uses a read-only pattern by design. If you point this at a production database, make sure the user account has SELECT permissions only.
@@ -160,7 +160,7 @@ GROQ_API_KEY=          # required — get free key at console.groq.com
 
 ---
 
-## things to add in v2
+## Things to add in v2
 
 - Query result caching for repeated questions
 - User feedback loop to flag bad answers
