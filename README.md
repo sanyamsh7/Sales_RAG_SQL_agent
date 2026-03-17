@@ -169,7 +169,3 @@ GROQ_API_KEY=          # required — get free key at console.groq.com
 - Per-user query history
 
 ---
-
-## license
-
-MIT
