@@ -1,10 +1,10 @@
-# Sales_RAG_SQL_agent
+# Sales_RAG_SQL_agent 
 
 A conversational SQL agent built on top of the Northwind sales database. Ask questions in plain English, get answers back — or flip to SQL mode and see the exact query that ran. Built with LangChain, ChromaDB, Groq, and Streamlit.
 
 ---
 
-## Why this exists?
+## Why this exists? 🔍
 
 The same five questions were being asked every week. Top customers by revenue. Category performance. Rep leaderboards. Pending orders. Someone always had to stop what they were doing, write a query, and send back a screenshot.
 
@@ -14,7 +14,7 @@ This sits in the middle. It understands the schema, knows what business terms li
 
 ---
 
-## How it works?
+## How it works? ⚙️
 
 Two modes in the UI:
 
@@ -24,7 +24,7 @@ Two modes in the UI:
 
 Under the hood, before the LLM touches the user's question, a retrieval step pulls relevant schema docs and business glossary entries from a ChromaDB vector store. That grounded context gets injected into the prompt before SQL is generated — which is what makes it accurate on complex multi-table queries rather than guessing column names.
 
-The full pipeline per query:
+The full pipeline per query: 🔄
 
 ```
 user question
@@ -37,20 +37,20 @@ user question
 
 ---
 
-## Stack
+## Stack 🛠️
 
-- **LangChain** — SQL agent orchestration, ReAct loop, tool use
-- **ChromaDB** — vector store for schema embeddings and business glossary
-- **Sentence Transformers** — all-MiniLM-L6-v2 for embedding schema docs locally (no API cost)
-- **Groq** — LLM inference, llama-3.3-70b-versatile
-- **SQLite** — database layer for the demo (Northwind dataset)
-- **Streamlit** — chat UI, sidebar schema explorer, mode toggle
-- **Plotly** — auto-generated charts in insight mode
-- **Docker** — containerized for deployment
+- **LangChain** 🔗 — SQL agent orchestration, ReAct loop, tool use
+- **ChromaDB** 🗄️ — vector store for schema embeddings and business glossary
+- **Sentence Transformers** 🤖 — all-MiniLM-L6-v2 for embedding schema docs locally (no API cost)
+- **Groq** ⚡ — LLM inference, llama-3.3-70b-versatile
+- **SQLite** 🗃️ — database layer for the demo (Northwind dataset)
+- **Streamlit** 🎨 — chat UI, sidebar schema explorer, mode toggle
+- **Plotly** 📊 — auto-generated charts in insight mode
+- **Docker** 🐳 — containerized for deployment
 
 ---
 
-## Project Structure - ( to be published ) 
+## Project Structure - ( to be published ) 📁
 
 ```
 sales-rag-agent/
@@ -75,7 +75,7 @@ sales-rag-agent/
 
 ---
 
-## The RAG Layer
+## The RAG Layer 🧠
 
 This is the part that separates it from a basic SQL chatbot.
 
@@ -85,7 +85,7 @@ All of this gets embedded into ChromaDB on startup using a local sentence transf
 
 ---
 
-## Running Locally
+## Running Locally 💻
 
 **Prerequisites:** Python 3.10+, a Groq API key (free at console.groq.com)
 
@@ -107,7 +107,7 @@ Open `http://localhost:8501`
 
 ---
 
-## Running with Docker
+## Running with Docker 🐳
 
 ```bash
 export GROQ_API_KEY=gsk_your_key_here
@@ -116,7 +116,7 @@ docker-compose up --build
 
 ---
 
-## Example Queries
+## Example Queries 💬
 
 ```
 Who are the top 5 customers by total revenue?
@@ -133,7 +133,7 @@ Switch to SQL mode on any of these and you'll see the exact query that ran.
 
 ---
 
-## Deployment
+## Deployment 🚀
 
 **Streamlit Community Cloud** — push to GitHub, connect the repo at share.streamlit.io, add GROQ_API_KEY under Settings → Secrets. Takes two minutes.
 
@@ -151,7 +151,7 @@ GROQ_API_KEY=          # required — get free key at console.groq.com
 
 ---
 
-## Known Limitations
+## Known Limitations ⚠️
 
 - Complex analytical queries with multiple nested aggregations can sometimes trip the agent. Specific, direct questions work better than vague ones.
 - The DB connection uses a read-only pattern by design. If you point this at a production database, make sure the user account has SELECT permissions only.
@@ -160,7 +160,7 @@ GROQ_API_KEY=          # required — get free key at console.groq.com
 
 ---
 
-## Things to add in v2
+## Things to add in v2 🗒️
 
 - Query result caching for repeated questions
 - User feedback loop to flag bad answers
